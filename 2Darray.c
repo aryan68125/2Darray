@@ -124,12 +124,60 @@ int MultiplyTwoArray(int a[10][10] , int b[10][10] , int res[10][10], int row, i
 return 0;
 }
 
+int transposeA(int a[10][10] ,int transA[10][10], int row, int column)
+{
+
+for(int i=0;i<row;i++)
+{
+	for(int j=0;j<column;j++)
+	{
+		transA[j][i] = a[i][j];
+	}
+}
+
+printf("Transpose of Matrix A\n");
+for(int i=0;i<column;i++)
+{
+	for(int j=0;j<row;j++)
+	{
+		printf("%d \t\t", transA[i][j]);
+	}
+	printf("\n");
+}
+return 0;
+}//transposeA closed
+
+int transposeB(int b[10][10] ,int transB[10][10], int row1, int column1)
+{
+
+for(int i=0;i<row1;i++)
+{
+	for(int j=0;j<column1;j++)
+	{
+		transB[j][i] = b[i][j];
+	}
+}
+
+printf("Transpose of Matrix B\n");
+for(int i=0;i<column1;i++)
+{
+	for(int j=0;j<row1;j++)
+	{
+		printf("%d \t\t", transB[i][j]);
+	}
+	printf("\n");
+}
+return 0;
+}//transposeB closed
+
 int main()
 {
 	int a[10][10];
 	int b[10][10];
 
 	int res[10][10]; //to store result
+	int transA[10][10]; //to store transpose of matrix A
+	int transB[10][10]; //to store transpose of matrix B
     
     int row;    //for matrix a
 	int column;
@@ -149,9 +197,12 @@ int main()
     printf("Press 5 for matrix a + matrix b\n");
     printf("Press 6 for matrix a - matrix b\n");
     printf("Press 7 for matrix a * matrix b\n");
-    printf("Press 8 to exit program\n");
+    printf("Press 8 to calculate transpose of matrix A\n");
+    printf("Press 9 to calculate transpose of matrix B\n");
+    printf("Press 10 to exit program\n");
     scanf("%d", &choice);
     printf("\n");
+    printf("you chose option %d \n", choice);
 
     switch(choice)
     {
@@ -195,6 +246,7 @@ int main()
 	{
 		printf("Addition of Matrix A and Matrix B is not possible \n");
 	}
+	printf("\n");
 	break;
 
     case 6:
@@ -207,6 +259,7 @@ int main()
 	{
 		printf("subtraction of Matrix A and Matrix B is not possible \n");
 	}
+	printf("\n");
 	break;
 
     case 7:
@@ -220,15 +273,28 @@ int main()
 	{
 		printf("multiplication of Matrix A and Matrix B is not possible \n");
 	}
+	printf("\n");
     break;
 
-	case 8:
-	printf("Program Terminated!!...\n");
+    case 8:
+    transposeA(a ,transA, row, column);
+    printf("\n");
+    break;
+
+    case 9:
+    transposeB(b ,transB, row1, column1);
+    printf("\n");
+    break;
+
+	case 10:
+	printf("Program Terminated by the user!!!...\n");
+	printf("\n");
 	k=200;
 	break;
 
 	default:
-	printf("Wrong choice\n");
+	printf("Wrong choice...Please try again!!!\n");
+	printf("\n");
 	break;
 }
 } while(k<100);
