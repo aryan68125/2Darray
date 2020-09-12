@@ -73,6 +73,55 @@ for(int i=0;i<row;i++)
 	printf("\n");
 }
  return 0;
+} //sumOdTwoArray closed
+
+int subtractionOfTwoArray(int a[10][10] , int b[10][10] , int res[10][10], int row, int column)
+{
+
+for(int i=0;i<row;i++)
+{
+	for(int j=0;j<column;j++)
+	{
+		res[i][j]=a[i][j] - b[i][j];
+	}
+}
+
+for(int i=0;i<row;i++)
+{
+	for(int j=0;j<column;j++)
+	{
+		printf("%d \t\t", res[i][j]);
+	}
+	printf("\n");
+}
+ return 0;
+}//subtractionOfTwoArray closed
+
+int MultiplyTwoArray(int a[10][10] , int b[10][10] , int res[10][10], int row, int column, int row1, int column1)
+{
+
+    int i, j, k;
+	for(i =0;i<row;i++) //row of matrix a
+	{
+		for(j=0;j<column1;j++) //column of matrix b
+		{
+			for(k=0;k<column;k++) //column of matrix a
+			{
+				res[i][j] += a[i][k] * b[k][j];
+			}
+		}
+	}
+
+	for(int i=0;i<row;i++) //row of matrix a
+{
+	for(int j=0;j<column1;j++) //column of matrix b
+	{
+		printf("%d \t\t", res[i][j]);
+	}
+	printf("\n");
+}
+
+return 0;
 }
 
 int main()
@@ -97,8 +146,10 @@ int main()
     printf("Press 2 to enter matrix b\n");
     printf("Press 3 to display matrix a\n");
     printf("Press 4 to display matrix b\n");
-    printf("Press 5 to ADD matrix a and matrix b\n");
-    printf("Press 6 to exit program\n");
+    printf("Press 5 for matrix a + matrix b\n");
+    printf("Press 6 for matrix a - matrix b\n");
+    printf("Press 7 for matrix a * matrix b\n");
+    printf("Press 8 to exit program\n");
     scanf("%d", &choice);
     printf("\n");
 
@@ -146,7 +197,32 @@ int main()
 	}
 	break;
 
-	case 6:
+    case 6:
+     if( row == row1 && column == column1)
+	{
+		printf("performing subtraction of matrix A and matrix B \n");
+		subtractionOfTwoArray( a, b, res, row, column);
+	}
+	else 
+	{
+		printf("subtraction of Matrix A and Matrix B is not possible \n");
+	}
+	break;
+
+    case 7:
+    // the number of columns in the first matrix must be equal to the number of rows in the second matrix
+    if( column == row1)
+	{
+		printf("performing multiplication of matrix A and matrix B \n");
+		MultiplyTwoArray(a , b ,res, row, column, row1, column1);
+	}
+	else 
+	{
+		printf("multiplication of Matrix A and Matrix B is not possible \n");
+	}
+    break;
+
+	case 8:
 	printf("Program Terminated!!...\n");
 	k=200;
 	break;
