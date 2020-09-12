@@ -53,10 +53,34 @@ int displayb(int b[10][10] , int row, int column)
    return 0;
 }//displayb closed
 
+int sumOfTwoArray(int a[10][10] , int b[10][10] , int res[10][10], int row, int column)
+{
+
+for(int i=0;i<row;i++)
+{
+	for(int j=0;j<column;j++)
+	{
+		res[i][j]=a[i][j] + b[i][j];
+	}
+}
+
+for(int i=0;i<row;i++)
+{
+	for(int j=0;j<column;j++)
+	{
+		printf("%d \t\t", res[i][j]);
+	}
+	printf("\n");
+}
+ return 0;
+}
+
 int main()
 {
 	int a[10][10];
 	int b[10][10];
+
+	int res[10][10]; //to store result
     
     int row;    //for matrix a
 	int column;
@@ -73,7 +97,8 @@ int main()
     printf("Press 2 to enter matrix b\n");
     printf("Press 3 to display matrix a\n");
     printf("Press 4 to display matrix b\n");
-    printf("Press 5 to exit program\n");
+    printf("Press 5 to ADD matrix a and matrix b\n");
+    printf("Press 6 to exit program\n");
     scanf("%d", &choice);
     printf("\n");
 
@@ -108,8 +133,20 @@ int main()
     displayb(b , row1, column1);
      printf("\n");
      break;
-	
-	case 5:
+     
+     case 5:
+     if( row == row1 && column == column1)
+	{
+		printf("performing Addition of matrix A and matrix B \n");
+		sumOfTwoArray( a, b, res, row, column);
+	}
+	else 
+	{
+		printf("Addition of Matrix A and Matrix B is not possible \n");
+	}
+	break;
+
+	case 6:
 	printf("Program Terminated!!...\n");
 	k=200;
 	break;
