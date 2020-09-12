@@ -199,7 +199,8 @@ int main()
     printf("Press 7 for matrix a * matrix b\n");
     printf("Press 8 to calculate transpose of matrix A\n");
     printf("Press 9 to calculate transpose of matrix B\n");
-    printf("Press 10 to exit program\n");
+    printf("Press 10 to see developer information\n");
+    printf("Press 11 to exit program\n");
     scanf("%d", &choice);
     printf("\n");
     printf("you chose option %d \n", choice);
@@ -286,7 +287,15 @@ int main()
     printf("\n");
     break;
 
-	case 10:
+    case 10:
+    printf(" Name :- Aditya Kumar\n");
+printf("Roll number:- 1901230100001\n");
+printf("Course:- B.Tech\n");
+printf("Stream:- Computer science\n");
+printf("\n");
+    break;
+
+	case 11:
 	printf("Program Terminated by the user!!!...\n");
 	printf("\n");
 	k=200;
